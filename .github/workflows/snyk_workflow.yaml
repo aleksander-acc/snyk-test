@@ -18,17 +18,15 @@ jobs:
           echo $GITHUB_WORKSPACE
       - name: pwd
         run: echo $PWD
-      - name: cd
-        run: cd microservice1
       - name: install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r microservice1/requirements.txt
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
         continue-on-error: true 
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif --file=requirements.txt --severity-threshold=medium
+          args: --sarif-file-output=snyk.sarif --file=microservice1/requirements.txt --severity-threshold=medium
        
 
      # The Snyk Action will fail when vulnerabilities are found. This would prevent the SARIF upload action from running     
