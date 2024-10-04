@@ -24,12 +24,12 @@ jobs:
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif --severity-threshold=medium
-          file: microservice1
+          args: --sarif-file-output=snyk.sarif --file=microservice1 --severity-threshold=medium
+       
 
      # The Snyk Action will fail when vulnerabilities are found. This would prevent the SARIF upload action from running     
       - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
         
           sarif_file: snyk.sarif
