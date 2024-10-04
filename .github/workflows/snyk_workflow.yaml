@@ -8,19 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get the code from main branch
-        uses: actions/checkout@master
+      - name: Get code
+        uses: actions/checkout@v3
       - name: Print available directories
         run: ls -la
       - name: github workspace
         run: |
           echo ${{ github.workspace }}
           echo $GITHUB_WORKSPACE
-      - name: Navigate to app directory
-        run: cd /github/workspace
       - name: pwd
         run: echo $PWD
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        args: --label=asdsad
+          
