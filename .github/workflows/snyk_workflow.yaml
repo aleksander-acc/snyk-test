@@ -8,13 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: print
-        run: echo "${{ secrets.SNYK_TOKEN }}"
+      - name: Get the code from main branch
       - uses: actions/checkout@master
-      - name: Navigate to app directory2
+      - name: Print available directories
         run: ls -la
       - name: Navigate to app directory
-        run: cd ~/app
+        run: cd ./microservice1
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
         env: 
