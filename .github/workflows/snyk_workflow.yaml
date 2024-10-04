@@ -19,6 +19,6 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
         with:
-          args: --workdir=$PWD
+          args: --workdir=/github/test 
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
