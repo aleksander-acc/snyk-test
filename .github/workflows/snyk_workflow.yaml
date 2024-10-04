@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Get the code from main branch
-      - uses: actions/checkout@master
+        uses: actions/checkout@master
       - name: Print available directories
         run: ls -la
       - name: Navigate to app directory
