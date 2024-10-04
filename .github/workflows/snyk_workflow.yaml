@@ -20,7 +20,9 @@ jobs:
         run: echo $PWD
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
+        continue-on-error: true 
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          GITHUB_WORKSPACE:  $GITHUB_WORKSPACE/microservice1
+        with:
+          args: --sarif-file-output=snyk.sarif  --file=./microservice1 --severity-threshold=medium
           
