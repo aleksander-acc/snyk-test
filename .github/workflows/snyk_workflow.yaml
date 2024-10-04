@@ -13,7 +13,11 @@ jobs:
       - name: Print available directories
         run: ls -la
       - name: Navigate to app directory
-        run: cd ./microservice1
+        run: cd /github      
+      - name: Print available directories
+        run: ls -la
+      - name: Navigate to app directory
+        run: cd /github/workspace
       - name: pwd
         run: echo $PWD
       - name: Run Snyk to check for vulnerabilities
