@@ -22,6 +22,5 @@ jobs:
         uses: snyk/actions/python@master
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --label=asdsad
+          GITHUB_WORKSPACE:  $GITHUB_WORKSPACE/microservice1
           
