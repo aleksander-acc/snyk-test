@@ -14,9 +14,11 @@ jobs:
         run: ls -la
       - name: Navigate to app directory
         run: cd ./microservice1
+      - name: pwd
+        run: echo $PWD
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
         with:
-          args: --workdir=.
+          args: --workdir=$PWD
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
