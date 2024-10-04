@@ -12,17 +12,15 @@ jobs:
         uses: actions/checkout@master
       - name: Print available directories
         run: ls -la
-      - name: Navigate to app directory
-        run: cd /github      
-      - name: Print available directories
-        run: ls -la
+      - name: github workspace
+        run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
       - name: Navigate to app directory
         run: cd /github/workspace
       - name: pwd
         run: echo $PWD
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
-        with:
-          args: --workdir=/github/test 
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
