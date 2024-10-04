@@ -16,5 +16,7 @@ jobs:
         run: cd ./microservice1
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
+        with:
+          args: --workdir=.
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
