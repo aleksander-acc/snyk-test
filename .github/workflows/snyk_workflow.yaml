@@ -10,11 +10,11 @@ jobs:
     steps:
       - name: print
         run: echo "${{ secrets.SNYK_TOKEN }}"
-      - name: Navigate to app directory
-        run: cd ~/app
+      - uses: actions/checkout@master
       - name: Navigate to app directory2
         run: ls -la
-      - uses: actions/checkout@master
+      - name: Navigate to app directory
+        run: cd ~/app
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@master
         env: 
