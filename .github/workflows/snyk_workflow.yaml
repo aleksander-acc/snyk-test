@@ -24,7 +24,7 @@ jobs:
         env: 
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif --file=microservice1 --severity-threshold=medium
+          args: --sarif-file-output=snyk.sarif --file=microservice1/requirements.txt --severity-threshold=medium
        
 
      # The Snyk Action will fail when vulnerabilities are found. This would prevent the SARIF upload action from running     
