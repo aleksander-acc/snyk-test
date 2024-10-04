@@ -6,6 +6,9 @@ on:
 jobs:
   security:
     runs-on: ubuntu-latest
+    permissions:
+      # required for all workflows for upload sarif
+      security-events: write
     steps:
       - name: Get code
         uses: actions/checkout@v3
